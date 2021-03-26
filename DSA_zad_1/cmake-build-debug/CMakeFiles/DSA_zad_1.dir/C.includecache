@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/PC/CLionProjects/DSA/DSA_zad_1/main.c
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
+time.h
+-
+
