@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/PC/CLionProjects/DSA/DSA_zad_2/AVL_tree.c
+AVL_tree.h
+C:/Users/PC/CLionProjects/DSA/DSA_zad_2/AVL_tree.h
+stdio.h
+-
+stdlib.h
+-
+
+C:/Users/PC/CLionProjects/DSA/DSA_zad_2/AVL_tree.h
+
+C:/Users/PC/CLionProjects/DSA/DSA_zad_2/LP_hash.c
+LP_hash.h
+C:/Users/PC/CLionProjects/DSA/DSA_zad_2/LP_hash.h
+stdio.h
+-
+stdlib.h
+-
+
+C:/Users/PC/CLionProjects/DSA/DSA_zad_2/LP_hash.h
+
+C:/Users/PC/CLionProjects/DSA/DSA_zad_2/main.c
+stdio.h
+-
+time.h
+-
+stdlib.h
+-
+AVL_tree.h
+C:/Users/PC/CLionProjects/DSA/DSA_zad_2/AVL_tree.h
+LP_hash.h
+C:/Users/PC/CLionProjects/DSA/DSA_zad_2/LP_hash.h
+
