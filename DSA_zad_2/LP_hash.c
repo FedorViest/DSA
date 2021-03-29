@@ -89,11 +89,11 @@ UNIT *LP_hash_search(UNIT *hash_table, int data){
     int temp = hashed_value - 1;                                //Pomocna premenna na uchovanie hodnoty o 1 mensej ako je zahashovana hodnota, aby cyklus vedel, kedy presiel celu tabulku
 
     while (hash_table[hashed_value].full != FREE_VALUE){        //Cyklus ide pokym nenajde volne miesto v tabulke
-        if (hashed_value == size - 1){                          //Osetrenie ci program nie je na konci pamate, ak je, ide od zaciatku
-            hashed_value = 0;
-        }
         if (hash_table[hashed_value].data == data){             //Kontrola, ci sa nasla hodnota zo vstupu, ak ano, funkcia vrati tabulku
             return hash_table;
+        }
+        if (hashed_value == size - 1){                          //Osetrenie ci program nie je na konci pamate, ak je, ide od zaciatku
+            hashed_value = 0;
         }
         if (temp == hashed_value)                               //Kontrola, ci som presiel celu pamat
             return NULL;

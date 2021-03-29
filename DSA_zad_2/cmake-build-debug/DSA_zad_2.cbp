@@ -80,10 +80,22 @@
 		<Unit filename="C:/Users/PC/CLionProjects/DSA/DSA_zad_2/AVL_tree.h">
 			<Option target="DSA_zad_2"/>
 		</Unit>
+		<Unit filename="C:/Users/PC/CLionProjects/DSA/DSA_zad_2/CHAINING_hash.c">
+			<Option target="DSA_zad_2"/>
+		</Unit>
+		<Unit filename="C:/Users/PC/CLionProjects/DSA/DSA_zad_2/CHAINING_hash.h">
+			<Option target="DSA_zad_2"/>
+		</Unit>
 		<Unit filename="C:/Users/PC/CLionProjects/DSA/DSA_zad_2/LP_hash.c">
 			<Option target="DSA_zad_2"/>
 		</Unit>
 		<Unit filename="C:/Users/PC/CLionProjects/DSA/DSA_zad_2/LP_hash.h">
+			<Option target="DSA_zad_2"/>
+		</Unit>
+		<Unit filename="C:/Users/PC/CLionProjects/DSA/DSA_zad_2/SPLAY_tree.c">
+			<Option target="DSA_zad_2"/>
+		</Unit>
+		<Unit filename="C:/Users/PC/CLionProjects/DSA/DSA_zad_2/SPLAY_tree.h">
 			<Option target="DSA_zad_2"/>
 		</Unit>
 		<Unit filename="C:/Users/PC/CLionProjects/DSA/DSA_zad_2/main.c">

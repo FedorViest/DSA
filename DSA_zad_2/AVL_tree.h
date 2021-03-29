@@ -10,6 +10,7 @@
 #define HEIGHT_DIFFERENCE(root) ((root) == NULL) ? 0 : ((GET_HEIGHT(root->left)) - (GET_HEIGHT(root->right)))   //Zistovanie rozdielu vysok z 2 uzlov
 
 
+
 /*
  * Struktura pre BVS, ktora v sebe uchovava hodnotu, vysku pocet duplikatov hodnoty, smernik na left child, smernik na right child
  */
@@ -35,3 +36,8 @@ int update_height(TREE *root);
 TREE *balance_tree(TREE *root, int data);
 TREE *AVL_search(TREE *root, int data);
 void preOrder(TREE *root);
+void print_rotations();
+
+/*int max(int a, int b);
+int height(TREE *root);
+int difference(TREE *root);*/

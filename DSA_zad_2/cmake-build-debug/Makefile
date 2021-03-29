@@ -169,6 +169,33 @@ AVL_tree.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DSA_zad_2.dir\build.make CMakeFiles/DSA_zad_2.dir/AVL_tree.c.s
 .PHONY : AVL_tree.c.s
 
+CHAINING_hash.obj: CHAINING_hash.c.obj
+
+.PHONY : CHAINING_hash.obj
+
+# target to build an object file
+CHAINING_hash.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DSA_zad_2.dir\build.make CMakeFiles/DSA_zad_2.dir/CHAINING_hash.c.obj
+.PHONY : CHAINING_hash.c.obj
+
+CHAINING_hash.i: CHAINING_hash.c.i
+
+.PHONY : CHAINING_hash.i
+
+# target to preprocess a source file
+CHAINING_hash.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DSA_zad_2.dir\build.make CMakeFiles/DSA_zad_2.dir/CHAINING_hash.c.i
+.PHONY : CHAINING_hash.c.i
+
+CHAINING_hash.s: CHAINING_hash.c.s
+
+.PHONY : CHAINING_hash.s
+
+# target to generate assembly for a file
+CHAINING_hash.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DSA_zad_2.dir\build.make CMakeFiles/DSA_zad_2.dir/CHAINING_hash.c.s
+.PHONY : CHAINING_hash.c.s
+
 LP_hash.obj: LP_hash.c.obj
 
 .PHONY : LP_hash.obj
@@ -195,6 +222,33 @@ LP_hash.s: LP_hash.c.s
 LP_hash.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DSA_zad_2.dir\build.make CMakeFiles/DSA_zad_2.dir/LP_hash.c.s
 .PHONY : LP_hash.c.s
+
+SPLAY_tree.obj: SPLAY_tree.c.obj
+
+.PHONY : SPLAY_tree.obj
+
+# target to build an object file
+SPLAY_tree.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DSA_zad_2.dir\build.make CMakeFiles/DSA_zad_2.dir/SPLAY_tree.c.obj
+.PHONY : SPLAY_tree.c.obj
+
+SPLAY_tree.i: SPLAY_tree.c.i
+
+.PHONY : SPLAY_tree.i
+
+# target to preprocess a source file
+SPLAY_tree.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DSA_zad_2.dir\build.make CMakeFiles/DSA_zad_2.dir/SPLAY_tree.c.i
+.PHONY : SPLAY_tree.c.i
+
+SPLAY_tree.s: SPLAY_tree.c.s
+
+.PHONY : SPLAY_tree.s
+
+# target to generate assembly for a file
+SPLAY_tree.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DSA_zad_2.dir\build.make CMakeFiles/DSA_zad_2.dir/SPLAY_tree.c.s
+.PHONY : SPLAY_tree.c.s
 
 main.obj: main.c.obj
 
@@ -235,9 +289,15 @@ help:
 	@echo ... AVL_tree.obj
 	@echo ... AVL_tree.i
 	@echo ... AVL_tree.s
+	@echo ... CHAINING_hash.obj
+	@echo ... CHAINING_hash.i
+	@echo ... CHAINING_hash.s
 	@echo ... LP_hash.obj
 	@echo ... LP_hash.i
 	@echo ... LP_hash.s
+	@echo ... SPLAY_tree.obj
+	@echo ... SPLAY_tree.i
+	@echo ... SPLAY_tree.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

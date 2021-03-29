@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/DSA_zad_2.dir/AVL_tree.c.obj"
+  "CMakeFiles/DSA_zad_2.dir/CHAINING_hash.c.obj"
   "CMakeFiles/DSA_zad_2.dir/LP_hash.c.obj"
+  "CMakeFiles/DSA_zad_2.dir/SPLAY_tree.c.obj"
   "CMakeFiles/DSA_zad_2.dir/main.c.obj"
   "DSA_zad_2.exe"
   "DSA_zad_2.exe.manifest"
