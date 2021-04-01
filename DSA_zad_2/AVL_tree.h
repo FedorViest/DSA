@@ -35,9 +35,5 @@ TREE *rotate_RightLeft(TREE *root);
 int update_height(TREE *root);
 TREE *balance_tree(TREE *root, int data);
 TREE *AVL_search(TREE *root, int data);
-void preOrder(TREE *root);
 void print_rotations();
 
-/*int max(int a, int b);
-int height(TREE *root);
-int difference(TREE *root);*/

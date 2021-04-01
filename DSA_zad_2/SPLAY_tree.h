@@ -21,5 +21,4 @@ void right_rotate(splay_tree *t, node *x);
 void splay(splay_tree *t, node *n);
 void splay_insert(splay_tree *t, node *n);
 node* splay_search(splay_tree *t, node *n, int x);
-
 void print_splay_rotations();

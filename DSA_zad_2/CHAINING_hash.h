@@ -1,7 +1,6 @@
 
 struct node_t {
     int key;
-    void *value;
     struct node_t *next, *prev;
 };
 

@@ -132,6 +132,10 @@ int update_height(TREE *root){
     return MAX(GET_HEIGHT(root->right), GET_HEIGHT(root->left)) + 1;
 }
 
+/*
+ * Pomocna funkcia na vypis rotacii
+ */
+
 void print_rotations(){
     printf("\tAmount of rotations: %d\n\n", rotations);
     rotations = 0;
@@ -151,12 +155,4 @@ TREE *AVL_search(TREE *root, int data){
         return AVL_search(root->left, data);
     else                          //Ak je vstupna hodnota vacsia ako hodnota v strome, funkcia sa vnara vpravo
         return AVL_search(root->right, data);
-}
-
-void preOrder(TREE *root){
-    if (root != NULL){
-        printf("%d->%d->%d\n", root->data, root->count, root->height);
-        preOrder(root->left);
-        preOrder(root->right);
-    }
 }

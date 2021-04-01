@@ -6,8 +6,8 @@
 
 #include "CHAINING_hash.h"
 
-#include "stdlib.h"
-#include "string.h"
+#include <stdlib.h>
+#include <string.h>
 
 #define HT_INITIAL_SIZE 11
 

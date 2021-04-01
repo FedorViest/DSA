@@ -20,23 +20,33 @@ void start_print(int max_size, int min_value, int max_value, int iterations);
 
 int main() {
     srand(time(0));
-    int iterations = 1, max_size = 1000000, min_value = 1, max_value = 10000000;
+
+    int iterations = 1, max_size = 1000000, min_value = 1, max_value = 10000000; //Pomocne premenne v poradi zlava doprava: pocet vykonani testu; pocet prvkov kolko chceme vlozit
+                                                                                 //do struktur, najmensia hodnota, ktoru chceme vlozit; najvacsia hodnota, ktoru chceme vlozit
+
     start_print(max_size, min_value, max_value, iterations);
+
+
     for (int i = 0; i < iterations; i++) {
         test_all(max_size, min_value, max_value, iterations);
     }
     return 0;
 }
 
+/*
+ * Hlavny testovac, ktory vola vsetky pomocne funkcie a zaroven rata priemerny cas pre kazdu y implementacii
+ */
+
 void test_all(int max_size, int min_value, int max_value, int iterations){
     int *test = (int *) calloc(max_size, sizeof(int ));     //Alokacia pola
     long long int random_value;
+
     for (int i = 0; i < max_size; i++){     //Inicializacia nahodnych hodnot v testovom poli
         random_value = generate_random(min_value, max_value);
         test[i] = random_value;
     }
 
-    static double time_AVL = 0, time_RB = 0, time_hash_table = 0, time_splay = 0, time_chain = 0;
+    static double time_AVL = 0, time_hash_table = 0, time_splay = 0, time_chain = 0;    //Inicialiyacia premennych na vyratanie priemernych casov
     static int count;
 
     /*
@@ -49,22 +59,32 @@ void test_all(int max_size, int min_value, int max_value, int iterations){
 
     free(test); //Uvolnenie pamate
 
-    count++;
+    count++;    //Zvacsenie poctu vykonanych testov o 1
 
     if (count == iterations) {
+        count = 0;
         printf("*****AVERAGE TIMES*****\n\n");
         printf("\tAvegrage time for insert and search in AVL Binary search tree is %.3lf\n", time_AVL / iterations);
         printf("\tAvegrage time for insert and search in Red-Black Binary search tree is %.3lf\n", time_splay / iterations);
         printf("\tAvegrage time for insert and search in Linear Probing Hash Table is %.3lf\n", time_hash_table / iterations);
         printf("\tAvegrage time for insert and search in Chaining Hash Table is %.3lf\n\n", time_chain / iterations);
+        time_AVL = time_splay = time_hash_table = time_chain = 0;
     }
 }
 
+/*
+ * Vsetky testovacie scenare prebiehaju rovnako, jediny rozdiel je medzi inicializaciou struktur / poli, ktore su nutne na spravny chod jednotlivych
+ * programov.
+ */
+
 double test_AVL(int max_size, int *test){
     printf("*****TESTING WITH AVL BINARY SEARCH TREE INITIATED*****\n\n");
+
+
     TREE *root = NULL;
     clock_t start, end;     //Premenne na zaciatok a koniec casu
     double time_insert, time_search;
+
 
     start = clock();
     for (int i = 0; i < max_size; i++){
@@ -72,6 +92,7 @@ double test_AVL(int max_size, int *test){
     }
     end = clock();
     time_insert = calculate_time(start, end);      //Volanie funkcie na vypocet casu, kolko zabralo vkladanie prvkov do AVL stromu
+
 
     start = clock();
     for (int i = 0; i < max_size; i++){
@@ -81,11 +102,13 @@ double test_AVL(int max_size, int *test){
     end = clock();
     time_search = calculate_time(start, end);   //Volanie funkcie na vypocet casu, kolko zabralo hladanie prvkov v AVL strome
 
+
     //Vypisy
-    printf("\tTime passed by RB_insert = %.3lf seconds\n", time_insert);
+    printf("\tTime passed by inserting = %.3lf seconds\n", time_insert);
     printf("\tTime searching values = %.3lf seconds\n", time_search);
     print_rotations();
     printf("*****TESTING WITH AVL BINARY SEARCH TREE FINISHED*****\n\n\n");
+
 
     double time_total = time_insert + time_search;
     return time_total;
@@ -94,36 +117,38 @@ double test_AVL(int max_size, int *test){
 double test_SPLAY(int max_size, int *test){
     printf("*****TESTING WITH SPLAY BINARY SEARCH TREE INITIATED*****\n\n");
 
+
     struct splay_tree *root = new_splay_tree();
     struct node **new = (node **) calloc(max_size, sizeof(node*));
 
 
-
-    clock_t start, end;     //Premenne na zaciatok a koniec casu
+    clock_t start, end;
     double time_insert, time_search;
+
+
     start = clock();
     for (int i = 0; i < max_size; i++){
         new[i] = new_node(test[i]);
-        splay_insert(root, new[i]);       //Volanie funkcie na vkladanie do AVL stromu
+        splay_insert(root, new[i]);
     }
     end = clock();
-    time_insert = calculate_time(start, end);      //Volanie funkcie na vypocet casu, kolko zabralo vkladanie prvkov do AVL stromu
+    time_insert = calculate_time(start, end);
+
 
     start = clock();
-
-
     for (int i = 0; i < max_size; i++){
-        if (splay_search(root, new[i], test[i]) == NULL)      //Volanie funkcie na hladanie v AVL strome
+        if (splay_search(root, new[i], test[i]) == NULL)
             printf("Error finding element: %d\n", test[i]);
     }
-
     end = clock();
+    time_search = calculate_time(start, end);
 
-    time_search = calculate_time(start, end);   //Volanie funkcie na vypocet casu, kolko zabralo hladanie prvkov v AVL strome
-    printf("\tTime passed by RB_insert = %.3lf seconds\n", time_insert);
+
+    printf("\tTime passed by inserting = %.3lf seconds\n", time_insert);
     printf("\tTime searching values = %.3lf seconds\n", time_search);
     print_splay_rotations();
     printf("*****TESTING WITH SPLAY BINARY SEARCH TREE FINISHED*****\n\n\n");
+
 
     double time_total = time_insert + time_search;
     return time_total;
@@ -131,32 +156,36 @@ double test_SPLAY(int max_size, int *test){
 
 double test_LP_hash(int max_size, int *test){
     printf("*****TESTING WITH LINEAR PROBING HASH TABLE INITIATED*****\n\n");
+
+
     UNIT *hash_table = NULL;
     hash_table = init_LP_hash(hash_table);
-    clock_t start, end;     //Premenne na zaciatok a koniec casu
+
+    clock_t start, end;
     double time_insert, time_search;
+
+
     start = clock();
     for (int i = 0; i < max_size; i++){
-        hash_table = LP_hash_insert(hash_table, test[i]);       //Volanie funkcie na vkladanie do hash tabulky
+        hash_table = LP_hash_insert(hash_table, test[i]);
     }
     end = clock();
-    time_insert = calculate_time(start, end);       //Volanie funkcie na vypocet casu, kolko zabralo vkladanie prvkov do hash tabulky
+    time_insert = calculate_time(start, end);
 
 
     start = clock();
-
-
     for (int i = 0; i < max_size; i++){
-        if (LP_hash_search(hash_table, test[i]) == NULL)    //Volanie funkcie na hladanie v hash tabulke
+        if (LP_hash_search(hash_table, test[i]) == NULL)
             printf("Error finding element: %d\n", test[i]);
     }
-
     end = clock();
+    time_search = calculate_time(start, end);
 
-    time_search = calculate_time(start, end);       //Volanie funkcie na vypocet casu, kolko zabralo hladanie prvkov v hash tabulke
-    printf("\tTime passed by RB_insert = %.3lf seconds\n", time_insert);
+
+    printf("\tTime passed by inserting = %.3lf seconds\n", time_insert);
     printf("\tTime searching values = %.3lf seconds\n\n", time_search);
     printf("*****TESTING WITH LINEAR PROBING HASH TABLE FINISHED*****\n\n\n");
+
 
     double time_total = time_insert + time_search;
     return time_total;
@@ -164,33 +193,37 @@ double test_LP_hash(int max_size, int *test){
 
 double test_CHAINING_hash(int max_size, int *test){
     printf("*****TESTING WITH CHAINING HASH TABLE INITIATED*****\n\n");
-    struct hashtable_t *hash_table = NULL;
 
+
+    struct hashtable_t *hash_table = NULL;
     hash_table = create_ht();
-    clock_t start, end;     //Premenne na zaciatok a koniec casu
+
+
+    clock_t start, end;
     double time_insert, time_search;
+
+
     start = clock();
     for (int i = 0; i < max_size; i++){
-        ht_insert(hash_table, test[i]);       //Volanie funkcie na vkladanie do hash tabulky
+        ht_insert(hash_table, test[i]);
     }
     end = clock();
-    time_insert = calculate_time(start, end);       //Volanie funkcie na vypocet casu, kolko zabralo vkladanie prvkov do hash tabulky
+    time_insert = calculate_time(start, end);
 
 
     start = clock();
-
-
     for (int i = 0; i < max_size; i++){
-        if (ht_search(hash_table, test[i]) == NULL)    //Volanie funkcie na hladanie v hash tabulke
+        if (ht_search(hash_table, test[i]) == NULL)
             printf("Error finding element: %d\n", test[i]);
     }
-
     end = clock();
+    time_search = calculate_time(start, end);
 
-    time_search = calculate_time(start, end);       //Volanie funkcie na vypocet casu, kolko zabralo hladanie prvkov v hash tabulke
-    printf("\tTime passed by RB_insert = %.3lf seconds\n", time_insert);
+
+    printf("\tTime passed by inserting = %.3lf seconds\n", time_insert);
     printf("\tTime searching values = %.3lf seconds\n\n", time_search);
     printf("*****TESTING WITH CHAINING HASH TABLE FINISHED*****\n\n\n");
+
 
     double time_total = time_insert + time_search;
     return time_total;
@@ -208,6 +241,10 @@ long long int generate_random(int min, int max){
     return result;
 
 }
+
+/*
+ * Pomocna funkcia na krajsi vypis
+ */
 
 void start_print(int max_size, int min_value, int max_value, int iterations){
     if (iterations == 1)

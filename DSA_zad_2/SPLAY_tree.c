@@ -143,4 +143,5 @@ node* splay_search(splay_tree *t, node *n, int x) {
 
 void print_splay_rotations(){
     printf("\tAmount of rotations: %d\n\n", splay_rotations);
+    splay_rotations = 0;
 }
