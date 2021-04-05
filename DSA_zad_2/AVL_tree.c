@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int rotations = 0;  //Globalna pomocna premenna na trackovanie poctu rotacii pre testovanie
+int rotations = 0;  //Globalna pomocna premenna na trackovanie poctu rotacii pre testovanie(nie je potrebna pre funkcnost programu)
 
 /*
  * Funkcia na vytvorenie noveho listu

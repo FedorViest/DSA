@@ -6,19 +6,27 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/PC/CLionProjects/DSA/DSA_zad_2/AVL_tree.c
+AVL_tree.h
 C:/Users/PC/CLionProjects/DSA/DSA_zad_2/AVL_tree.h
-
-C:/Users/PC/CLionProjects/DSA/DSA_zad_2/CHAINING_hash.c
-CHAINING_hash.h
-C:/Users/PC/CLionProjects/DSA/DSA_zad_2/CHAINING_hash.h
+stdio.h
+-
 stdlib.h
 -
-string.h
--
+
+C:/Users/PC/CLionProjects/DSA/DSA_zad_2/AVL_tree.h
 
 C:/Users/PC/CLionProjects/DSA/DSA_zad_2/CHAINING_hash.h
 
 C:/Users/PC/CLionProjects/DSA/DSA_zad_2/LP_hash.h
+
+C:/Users/PC/CLionProjects/DSA/DSA_zad_2/SPLAY_tree.c
+SPLAY_tree.h
+C:/Users/PC/CLionProjects/DSA/DSA_zad_2/SPLAY_tree.h
+stdio.h
+-
+stdlib.h
+-
 
 C:/Users/PC/CLionProjects/DSA/DSA_zad_2/SPLAY_tree.h
 

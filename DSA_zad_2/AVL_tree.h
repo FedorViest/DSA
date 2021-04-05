@@ -12,7 +12,7 @@
 
 
 /*
- * Struktura pre BVS, ktora v sebe uchovava hodnotu, vysku pocet duplikatov hodnoty, smernik na left child, smernik na right child
+ * Struktura pre BVS, ktora v sebe uchovava hodnotu na vstupe, vysku, pocet duplikatov hodnoty, smernik na left child, smernik na right child
  */
 typedef struct tree{
     int data;

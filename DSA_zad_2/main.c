@@ -46,7 +46,7 @@ void test_all(int max_size, int min_value, int max_value, int iterations){
         test[i] = random_value;
     }
 
-    static double time_AVL = 0, time_hash_table = 0, time_splay = 0, time_chain = 0;    //Inicialiyacia premennych na vyratanie priemernych casov
+    static double time_AVL = 0, time_hash_table = 0, time_splay = 0, time_chain = 0;    //Inicializacia premennych na vyratanie priemernych casov
     static int count;
 
     /*
@@ -234,10 +234,10 @@ double test_CHAINING_hash(int max_size, int *test){
  * Generovanie nahodneho cisla zo zadaneho intervalu
  */
 long long int generate_random(int min, int max){
-    long long int result =  (rand() % (max - min)) + min;
-    result = result << 15;
-    result = result | (rand() % (max - min)) + min;
-    result %= max;
+    long long int result =  (rand() % (max - min)) + min;   //Najprv sa vygeneruje nahodne cislo (1-32768, lebo maximalna hodnota pre windows je 2^15)
+    result = result << 15;                                  //Vygenerovane cislo pomocou bitshift posuniem
+    result = result | (rand() % (max - min)) + min;         //Generovanie noveho nadodneho cisla a spojenie s predoslym (teraz ma cislo rozsah 2^30)
+    result %= max;                                          //Modulovanie najvacsou hodnotou z intervalu, aby bolo vygenerovane cislo zo zadaneho intervalu
     return result;
 
 }

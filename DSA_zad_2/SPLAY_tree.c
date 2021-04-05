@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int splay_rotations = 0;
+int splay_rotations = 0;        //Globalna pomocna premenna na trackovanie poctu rotacii pre testovanie(nie je potrebna pre funkcnost programu)
 
 node* new_node(int data) {
     node *n = malloc(sizeof(node));
